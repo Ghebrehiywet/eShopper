@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/dashboard_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Orders List Page</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+<div class="row" sec:authorize="isAuthenticated()">
+    <!-- for each part using expression language  Iteration th:each   -->
+    <div class="col">
+        <div class="card" style="width: 100%;" layout:fragment="main-content">
+            <div class="card-body">
+
+                <div class="">
+                    <div th:switch="${orders}" class="container my-5">
+                        <p class="my-5">
+                            <a href="/" class="btn btn-primary">
+                                <i class="fas fa-plus ml-2"> Continue Shopping </i></a>
+                        </p>
+                        <div class="col-md-10">
+                            <h2 th:case="null">No record found !!</h2>
+                            <div th:case="*">
+                                <table class="table table-striped table-responsive-md">
+                                    <thead>
+                                    <tr>
+                                        <th>Order Date</th>
+                                        <th>Total Price</th>
+                                        <th>Order Status</th>
+                                        <th>History</th>
+
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="order : ${orders}">
+                                        <td th:text="${order.orderDate}"></td>
+                                        <td th:if="${order.payment!=null}"
+                                            th:text="${order.payment.getTotalPrice()}"></td>
+                                        <td th:if="${order.couponPayment!=null}"
+                                            th:text="${order.couponPayment.getTotalPrice()}"></td>
+                                        <td th:text="${order.orderStatus}"></td>
+<!--                                        <td th:text="${order.orderHistory}"></td>-->
+
+                                        <td>
+                                            <a sec:authorize="hasAuthority('SELLER')"
+                                               th:if="${order.orderStatus != T(com.group3.onlineShooping.domain.OrderStatus).CANCELD && order.orderStatus != T(com.group3.onlineShooping.domain.OrderStatus).DELIVERED}"
+                                               th:href="@{/order/edit/{id}(id=${order.getId()})}"
+                                               class="btn btn-primary" title="Update order status">
+                                                <i class="fas fa-edit"> </i>
+                                            </a>
+
+                                            <a th:href="@{/order/{id}(id=${order.getId()})}"
+                                               class="btn btn-primary" title="Order Detail">
+                                                <i class="fas fa-info sign ml-2"></i>
+                                            </a>
+
+                                            <a sec:authorize="hasAuthority('SELLER')"
+                                               th:if="${order.orderStatus != T(com.group3.onlineShooping.domain.OrderStatus).CANCELD &&
+                                                        order.orderStatus != T(com.group3.onlineShooping.domain.OrderStatus).DELIVERED}"
+                                               th:href="@{/order/delete/{id}(id=${order.getId()})}"
+                                               class="btn btn-danger" title="Cancel order">
+                                                <i class="fas fa-times ml-2"></i>
+                                            </a>
+
+                                            <a sec:authorize="hasAuthority('BUYER')"
+                                               th:if="${order.orderStatus == T(com.group3.onlineShooping.domain.OrderStatus).ORDERED || order.orderStatus == null}"
+                                               th:href="@{/order/delete/{id}(id=${order.getId()})}"
+                                               class="btn btn-danger" title="Cancel order">
+                                                <i class="fas fa-times ml-2"></i>
+                                            </a>
+
+                                            <a th:href="@{/order/hostory/{id}(id=${order.getId()})}"
+                                               class="btn btn-success" title="Order History">
+                                                <i class="fas fa-th-list glyphicon glyphicon-th-list sign ml-2"></i>
+                                            </a>
+
+                                            <a th:href="@{/orderreceipt/{id}(id=${order.getId()})}"
+                                               target="_blank" class="btn btn-success" title="Order Receipt">
+                                                <i class="fas fa-file-invoice glyphicon glyphicon-file-invoice"></i>
+                                            </a>
+                                        </td>
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="w-100"></div>
+    <!-- for each part using expression language  Iteration th:each   -->
+</div>
+</body>
+</html>
