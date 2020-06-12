@@ -29,12 +29,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-
-### Removed items
-.idea
-*.iml
-*.eml
-*.userlibraries
-target
-
