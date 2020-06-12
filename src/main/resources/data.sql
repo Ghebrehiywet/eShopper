@@ -7,7 +7,7 @@ INSERT INTO User (user_id, active, password, username)
 VALUES (30, 1,'$2a$10$OwJ59e2wB42l1JjePYHg6.N8Gg17W8Dmy3xwAm.QKJA47bTYpnu7e', 'buyer@gmail.com');
 INSERT INTO user_role (user_id, role_id) VALUES(30,2);
 INSERT INTO buyer (coupons, email, first_name, last_name, user_id, id)
-VALUES(0,'buyer@gmail.com','Mahlet','Saron',30,30);
+VALUES(0,'buyer@gmail.com','test','test',30,30);
 
 
 
@@ -15,7 +15,7 @@ INSERT INTO User (user_id, active, password, username)VALUES
 (20, 1,'$2a$10$OwJ59e2wB42l1JjePYHg6.N8Gg17W8Dmy3xwAm.QKJA47bTYpnu7e', 'seller@gmail.com');
 INSERT INTO user_role (user_id, role_id) VALUES(20,3);
 INSERT INTO  Seller (SERLLER_ID,EMAIL,FULL_NAME,AREA_CODE,PHONE_NUMBER,USER_ID)
-VALUES(20,'seller@gmail.com','Mahlet Sharew','112','111',20);
+VALUES(20,'seller@gmail.com','test test ','112','111',20);
 
 
 INSERT INTO User (user_id, active, password, username)
@@ -29,7 +29,7 @@ INSERT INTO User (user_id, active, password, username)VALUES
 (40, 1,'$2a$10$OwJ59e2wB42l1JjePYHg6.N8Gg17W8Dmy3xwAm.QKJA47bTYpnu7e', 'lina@gmail.com');
 INSERT INTO user_role (user_id, role_id) VALUES(40,3);
 INSERT INTO  Seller (SERLLER_ID,EMAIL,FULL_NAME,AREA_CODE,PHONE_NUMBER,USER_ID)
-VALUES(40,'lina@gmail.com','Saron','112','111',40);
+VALUES(40,'lina@gmail.com','test','112','111',40);
 
 
 
@@ -37,7 +37,7 @@ INSERT INTO User (user_id, active, password, username)VALUES
 (60, 1,'$2a$10$OwJ59e2wB42l1JjePYHg6.N8Gg17W8Dmy3xwAm.QKJA47bTYpnu7e', 'lina@gmail.com');
 INSERT INTO user_role (user_id, role_id) VALUES(60,3);
 INSERT INTO  Seller (SERLLER_ID,EMAIL,FULL_NAME,AREA_CODE,PHONE_NUMBER,USER_ID)
-VALUES(60,'girma@gmail.com','Girma','112','111',60);
+VALUES(60,'girma@gmail.com','test','112','111',60);
 
 
 
