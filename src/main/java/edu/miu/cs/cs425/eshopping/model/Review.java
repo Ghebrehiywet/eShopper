@@ -11,7 +11,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 @Getter
 @Setter
-
 @Entity
 public class Review {
 	/*public enum ReviewStatus {
@@ -39,6 +38,55 @@ public class Review {
 
 	@Column(name = "comment_time", columnDefinition = "TIMESTAMP")
 	private LocalDateTime commentTime = LocalDateTime.now();
+
+
+	public Long getReviewId() {
+		return reviewId;
+	}
+
+	public void setReviewId(Long reviewId) {
+		this.reviewId = reviewId;
+	}
+
+	public Buyer getBuyer() {
+		return buyer;
+	}
+
+	public void setBuyer(Buyer buyer) {
+		this.buyer = buyer;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public ReviewStatus getReviewStatus() {
+		return reviewStatus;
+	}
+
+	public void setReviewStatus(ReviewStatus reviewStatus) {
+		this.reviewStatus = reviewStatus;
+	}
+
+	public LocalDateTime getCommentTime() {
+		return commentTime;
+	}
+
+	public void setCommentTime(LocalDateTime commentTime) {
+		this.commentTime = commentTime;
+	}
 
 	@Override
 	public String toString() {
