@@ -1,5 +1,6 @@
 package edu.miu.cs.cs425.eshopping.controller;
 
+import edu.miu.cs.cs425.eshopping.model.Admin;
 import edu.miu.cs.cs425.eshopping.model.Role;
 import edu.miu.cs.cs425.eshopping.model.Seller;
 import edu.miu.cs.cs425.eshopping.service.RoleService;
@@ -54,6 +55,35 @@ public class SellerController {
         userService.save(seller.getUser());
         Seller sellerResult = sellerService.addSeller(seller);
         redirectAttributes.addFlashAttribute("firstName", seller.getFullName());
+        return "redirect:/login";
+    }
+
+
+    @GetMapping(value = "/update")
+    public String getUpdate(String email, Model model) {
+        Seller seller = sellerService.findByEmail("seller@gmail.com");
+        model.addAttribute("seller", seller);
+
+        return "seller/updateForm";
+    }
+
+    @PostMapping(value = "/update")
+    public String updateSeller(@Validated @ModelAttribute("seller") Seller seller, BindingResult result, Model model,
+                               RedirectAttributes redirectAttributes) {
+        if (result.hasErrors()) {
+            return "seller/updateForm";
+        }
+
+        Seller existing = sellerService.find(seller.getId());
+        //buyer.setUser(existing.getUser());
+        existing.setFullName(seller.getFullName());
+        existing.setPhoneNumber(seller.getPhoneNumber());
+        existing.setEmail(seller.getEmail());
+        existing.getUser().setPassword(seller.getUser().getPassword());
+
+        userService.save(existing.getUser());
+        Seller sellerResult = sellerService.addSeller(existing);
+        redirectAttributes.addFlashAttribute("firstName", existing.getFullName());
         return "redirect:/login";
     }
 

@@ -19,7 +19,7 @@ import java.util.List;
 public class Seller {
     @Id
     @GeneratedValue
-    private Long serllerId;
+    private Long Id;
 
 
     @NotBlank

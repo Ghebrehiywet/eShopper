@@ -2,8 +2,7 @@
 <html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/dashboard_layout}"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Buyer Update</title>
-
+    <title>Admin Update</title>
 </head>
 <style>
     row {
@@ -16,9 +15,10 @@
      layout:fragment="main-content">
     <div class="row">
         <div class="col-md-6" style="background-color: #f2f2f2;padding: 20px;">
-            <form action="#" th:action="@{/buyer/update}" th:object="${buyer}"
+
+            <form action="#" th:action="@{/admin/update}" th:object="${admin}"
                   method="post" 　>
-                <h4> Buyer Update</h4>
+                <h4>Admin Registration</h4>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-lock"></i></span>

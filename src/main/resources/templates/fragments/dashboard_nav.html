@@ -20,16 +20,16 @@
                     <a class="nav-link" href="#" th:href="@{/order/buyer}">Order</a>
                 </li>
 
-              <!--  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown7" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Follow/UnFollow
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#" th:href="@{/follower/getSeller}">List of Seller </a>
-                        <a class="dropdown-item" href="#" th:href="@{/follower/getFollowed}">Following</a>
-                    </div>
-                </li>-->
+                <!--  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown7" role="button"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Follow/UnFollow
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#" th:href="@{/follower/getSeller}">List of Seller </a>
+                          <a class="dropdown-item" href="#" th:href="@{/follower/getFollowed}">Following</a>
+                      </div>
+                  </li>-->
 
                 <!--<li class="nav-item dropdown" sec:authorize="hasAuthority('BUYER')">
                     <div th:fragment="logout" class="logout">
@@ -79,6 +79,7 @@
                         </div>
                     </div>
                 </li>
+
             </ul>
         </div>
 
@@ -97,13 +98,19 @@
                 <li class="nav-item dropdown">
                     <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
 
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                            data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             <span sec:authentication="name"></span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <div class="dropdown-item" href="#"><span sec:authentication="principal.authorities"></span>
+                            <div class="dropdown-item" href="#">
+                                <p>
+                                    <span sec:authentication="principal.authorities"></span>
+                                    <a th:href="@{/seller/update}">
+                                        Edit
+                                    </a>
+                                </p>
                             </div>
                             <div class="dropdown-item" href="#">
                                 <form action="#" th:action="@{/logout}" method="post">
@@ -128,13 +135,19 @@
                 <li class="nav-item dropdown">
                     <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
 
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown9" role="button"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                            data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             <span sec:authentication="name"></span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <div class="dropdown-item" href="#"><span sec:authentication="principal.authorities"></span>
+                            <div class="dropdown-item" href="#">
+                                <p>
+                                    <span sec:authentication="principal.authorities"></span>
+                                    <a th:href="@{/admin/update}">
+                                        Edit
+                                    </a>
+                                </p>
                             </div>
                             <div class="dropdown-item" href="#">
                                 <form action="#" th:action="@{/logout}" method="post">

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class ControllerExceptionHandler {
 
-
     @ExceptionHandler(ProductUnavailableException.class)
     public ModelAndView handleProductUnavailableException(HttpServletRequest req, ProductUnavailableException exception) {
         ModelAndView mav = new ModelAndView();
@@ -51,16 +50,5 @@ public class ControllerExceptionHandler {
         mav.setViewName("error/errorAccess");
         return mav;
     }
-
-
-/*
-	@ExceptionHandler(UploadImageFailException.class)
-	public ModelAndView handleError(HttpServletRequest req, UploadImageFailException exception) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("exception", exception);
-		mav.setViewName("errorUploadImage");
-		return mav;
-	}*/
-
 
 }
