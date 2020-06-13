@@ -78,13 +78,6 @@ public class Buyer {
         this.email = email;
     }
 
-    public Integer getCoupons() {
-        return coupons;
-    }
-
-    public void setCoupons(Integer coupons) {
-        this.coupons = coupons;
-    }
 
     public User getUser() {
         return user;

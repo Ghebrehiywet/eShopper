@@ -19,7 +19,7 @@ import java.util.List;
 public class Seller {
     @Id
     @GeneratedValue
-    private Long serllerId;
+    private Long id;
 
 
     @NotBlank
@@ -41,12 +41,12 @@ public class Seller {
     @Valid
     private User user;
 
-    public Long getSerllerId() {
-        return serllerId;
+    public Long getId() {
+        return id;
     }
 
-    public void setSerllerId(Long serllerId) {
-        this.serllerId = serllerId;
+    public void setId(Long id) {
+        id = id;
     }
 
     public String getFullName() {
