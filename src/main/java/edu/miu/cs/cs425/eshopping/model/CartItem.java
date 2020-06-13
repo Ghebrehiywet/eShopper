@@ -19,7 +19,7 @@ public class CartItem {
 	private Long cartId;
 
 	@OneToOne
-	private Buyer buyer;
+	private Order order;
 
 	@OneToMany(cascade  = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER, mappedBy = "cartItem")
 	private List<Item> item;

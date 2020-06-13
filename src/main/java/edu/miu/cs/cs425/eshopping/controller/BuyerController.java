@@ -51,6 +51,7 @@ public class BuyerController {
         Role role = roleService.findByRoleName("BUYER");
         Set<Role> roles = new HashSet<>();
         roles.add(role);
+
         buyer.getUser().setUsername(buyer.getEmail());
         buyer.getUser().setActive(1);
         buyer.getUser().setRoles(roles);
