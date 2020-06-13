@@ -2,8 +2,7 @@
 <html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/dashboard_layout}"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Buyer Update</title>
-
+    <title>Seller Update</title>
 </head>
 <style>
     row {
@@ -16,32 +15,22 @@
      layout:fragment="main-content">
     <div class="row">
         <div class="col-md-6" style="background-color: #f2f2f2;padding: 20px;">
-            <form action="#" th:action="@{/buyer/update}" th:object="${buyer}"
+            <form action="#" th:action="@{/seller/update}" th:object="${seller}"
                   method="post" 　>
-                <h4> Buyer Update</h4>
+                <h4> Seller Registration</h4>
+
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-lock"></i></span>
                     </div>
                     <input type="hidden" th:field="*{id}">
 
-                    <input type="text" th:field="*{firstName}"
+                    <input type="text" th:field="*{fullName}"
                            placeholder="First Name" class="form-control" aria-describedby="basic-addon1"/>
-                    <div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}">
-                    <span th:if="${#fields.hasErrors('firstName')}"
-                          th:errors="*{firstName}" class="validation-message"> </span>
-                    </div>
-                </div>
-
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-user-lock"></i></span>
-                    </div>
-                    <input type="text" th:field="*{lastName}"
-                           placeholder="Last Name" class="form-control" aria-describedby="basic-addon2"/>
-                    <div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}">
-                    <span th:if="${#fields.hasErrors('lastName')}"
-                          th:errors="*{lastName}" class="validation-message"></span>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('fullName')}">
+                    <span th:if="${#fields.hasErrors('fullName')}"
+                          th:errors="*{fullName}" class="validation-message">
+                    </span>
                     </div>
                 </div>
 
@@ -52,8 +41,9 @@
                     <input type="text" th:field="*{email}"
                            placeholder="Email" class="form-control" aria-describedby="basic-addon3"/>
                     <div class="alert alert-danger" th:if="${#fields.hasErrors('email')}">
-                    <span th:if="${#fields.hasErrors('email')}"
-                          th:errors="*{email}" class="validation-message"></span>
+                        <span th:if="${#fields.hasErrors('email')}"
+                              th:errors="*{email}" class="validation-message">
+                        </span>
                     </div>
                 </div>
 

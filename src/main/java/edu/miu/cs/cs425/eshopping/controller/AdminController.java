@@ -97,4 +97,41 @@ public class AdminController {
         reviewService.put(review);
         return "redirect:/admin/commet_approval";
     }
+
+
+    @GetMapping(value = "/update")
+    public String getUpdate(String email, Model model) {
+        Admin admin = adminService.findByEmail("admin@gmail.com");
+        model.addAttribute("admin", admin);
+
+        return "admin/updateForm";
+    }
+
+
+    @PostMapping(value = "/update")
+    public String updateAdmin(@Valid Admin admin, BindingResult result, Model model,
+                              RedirectAttributes redirectAttributes) {
+        if (result.hasErrors()) {
+            return "admin/updateForm";
+        }
+        Admin existing = adminService.find(admin.getId());
+        //buyer.setUser(existing.getUser());
+        existing.setFirstName(admin.getFirstName());
+        existing.setLastName(admin.getLastName());
+        existing.setEmail(admin.getEmail());
+        existing.getUser().setPassword(admin.getUser().getPassword());
+
+//        Role role = roleService.findByRoleName("ADMIN");
+//        Set<Role> roles = new HashSet<>();
+//        roles.add(role);
+//        admin.getUser().setUsername(admin.getEmail());
+//        admin.getUser().setActive(1);
+//        admin.getUser().setRoles(roles);
+//
+        User user = userService.save(existing.getUser());
+        adminService.save(existing);
+        redirectAttributes.addFlashAttribute("firstName", existing.getFirstName());
+        return "redirect:/login";
+    }
+
 }

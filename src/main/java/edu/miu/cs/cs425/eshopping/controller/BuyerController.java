@@ -77,17 +77,25 @@ public class BuyerController {
         if (result.hasErrors()) {
             return "buyer/buyerUpdateForm";
         }
-        Role role = roleService.findByRoleName("BUYER");
-        Set<Role> roles = new HashSet<>();
-        roles.add(role);
+        Buyer existing = buyerService.find(buyer.getId());
+        //buyer.setUser(existing.getUser());
+        existing.setFirstName(buyer.getFirstName());
+        existing.setLastName(buyer.getLastName());
+        existing.setEmail(buyer.getEmail());
+        existing.getUser().setPassword(buyer.getUser().getPassword());
 
-        buyer.getUser().setUsername(buyer.getEmail());
-        buyer.getUser().setActive(1);
-        buyer.getUser().setRoles(roles);
-        userService.save(buyer.getUser());
-        Buyer buyerResult = buyerService.save(buyer);
-        System.out.println("*****************" + buyer);
-        redirectAttributes.addFlashAttribute("firstName", buyer.getFirstName());
+//        Role role = roleService.findByRoleName("BUYER");
+//        Set<Role> roles = new HashSet<>();
+//        roles.add(role);
+//
+//        buyer.getUser().setUsername(buyer.getEmail());
+//        buyer.getUser().setActive(1);
+//        buyer.getUser().setRoles(roles);
+
+        userService.save(existing.getUser());
+        Buyer buyerResult = buyerService.save(existing);
+//        System.out.println("*****************" + existing);
+        redirectAttributes.addFlashAttribute("firstName", existing.getFirstName());
         return "redirect:/login";
     }
 
