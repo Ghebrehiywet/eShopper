@@ -31,8 +31,8 @@
                 <th></th>
                 <th>Product</th>
                 <th class="text-center">Quantity</th>
-                <th class="text-right">Price</th>
-                <th class="text-right"></th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -42,7 +42,7 @@
                          width="100" height="100" alt="...">
                 </td>
                 <td th:text="${product.description}" style="text-align: center; vertical-align: middle">Text ...</td>
-                <td class="text-center" th:text="${product.price}" style="text-align: center; vertical-align: middle">
+                <td class="text-center" th:text="${product.availableInStor}" style="text-align: center; vertical-align: middle">
                     Text ...
                 </td>
                 <td class="text-right" th:text="${product.price}" style="text-align: center; vertical-align: middle">

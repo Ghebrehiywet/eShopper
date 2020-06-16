@@ -36,7 +36,7 @@
                                         </h4>
 
                                         <p th:each="itm : ${payment.cartItem.item}">
-                                            <a th:href="@{'/cartItem/viewDetails?productId={id}'(id=${payment.cartItem.cartId})}"
+                                            <a th:href="@{'/cartItem/viewDetails?productId={id}'(id=${itm.product.id})}"
                                                th:text="${itm.product.title}"></a>
                                             (<span th:text="${itm.quantity}"></span>)
                                             <span class="price" th:text="${itm.product.price*itm.quantity}"></span>
