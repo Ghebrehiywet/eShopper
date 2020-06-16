@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/dashboard_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Update</title>
+</head>
+<style>
+    row {
+        padding-top: 80px;
+        margin: 10%;
+    }
+</style>
+<body>
+
+<div class="card" style="margin:2%;margin-left: 15%;width: 100%;" layout:fragment="main-content">
+    <div class="row">
+        <div class="col-md-6" style="background-color: #f2f2f2;padding: 20px;">
+
+            <form action="#" th:action="@{/admin/update}" th:object="${admin}"
+                  method="post" 　>
+                <h4>Admin Registration</h4>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-lock"></i></span>
+                    </div>
+                    <input type="hidden" th:field="*{id}">
+
+                    <input type="text" th:field="*{firstName}"
+                           placeholder="First Name" class="form-control" aria-describedby="basic-addon1"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}">
+                    <span th:if="${#fields.hasErrors('firstName')}"
+                          th:errors="*{firstName}" class="validation-message"> </span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-user-lock"></i></span>
+                    </div>
+                    <input type="text" th:field="*{lastName}"
+                           placeholder="Last Name" class="form-control" aria-describedby="basic-addon2"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}">
+                    <span th:if="${#fields.hasErrors('lastName')}"
+                          th:errors="*{lastName}" class="validation-message"></span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">@</span>
+                    </div>
+                    <input type="text" th:field="*{email}"
+                           placeholder="Email" class="form-control" aria-describedby="basic-addon3"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('email')}">
+                    <span th:if="${#fields.hasErrors('email')}"
+                          th:errors="*{email}" class="validation-message"></span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon5"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" th:field="*{user.password}"
+                           placeholder="Password" class="form-control" aria-describedby="basic-addon5"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('user.password')}">
+                    <span th:if="${#fields.hasErrors('user.password')}"
+                          th:errors="*{user.password}" class="validation-message"></span>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon4"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" th:field="*{user.matchingPassword}"
+                           placeholder="Confirm Password" class="form-control" aria-describedby="basic-addon3"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('user.matchingPassword')}">
+                    <span th:if="${#fields.hasErrors('user.matchingPassword')}"
+                          th:errors="*{user.matchingPassword}" class="validation-message"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Update</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

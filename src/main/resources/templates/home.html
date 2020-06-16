@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/dashboard_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+<div class="col" layout:fragment="main-content">
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Welcome to SEGY Online Shopping
+            </h1>
+
+            <img th:src="@{/images/sysImages/image3.jpg}" width="40%" height="40%">
+            <br/>
+            <p>SEGY shopping center has many branches and it has many customers.
+                The customers buy the product form the store by visiting the nearest store.
+                They pick the product on the shelf and make a payment for the cushier.
+                Before then, it was possible to handle costumers need manually in this way.
+                Currently, the numbers of customers are increasing and the trend of commercial transaction and transfer
+                of information is changed across the Internet. In addition, there is a Corona virus pandemic and
+                it is not possible to help all customers in the store. So, SEGY need a software that enables
+                the customer to buy the product online.SEGY shopping center has many branches and it has many customers.
+                The customers buy the product form the store by visiting the nearest store.
+                They pick the product on the shelf and make a payment for the cushier.
+                Before then, it was possible to handle costumers need manually in this way.
+                Currently, the numbers of customers are increasing and the trend of commercial transaction and
+                transfer of information is changed across the Internet. In addition, there is a Corona virus pandemic
+                and
+                it is not possible to help all customers in the store. So, SEGY need a software that enables the
+                customer
+                to buy the product online.</p>
+            <p>
+                <span th:fragment="logout" class="logout" sec:authorize="!isAuthenticated()">
+                    <a class="btn btn-primary btn-lg" href="/login" role="button">
+                        Login
+                        &raquo;
+                    </a>
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

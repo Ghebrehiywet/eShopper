@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/dashboard_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Product Category</title>
+</head>
+<style>
+    row {
+        padding-top: 80px;
+        margin: 10%;
+    }
+</style>
+<body>
+<div layout:fragment="main-content" class="row" style="margin:2%;margin-left: 15%">
+    <div class="row">
+        <div class="" style="background-color: #f2f2f2;padding: 20px;">
+            <form action="#" th:action="@{/category/update}" th:object="${category}"
+                  method="post" 　>
+                <h4> Category Update</h4>
+
+                <div class="input-group mb-">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-lock"></i></span>
+                    </div>
+                    <input type="hidden" th:field="*{categoryId}">
+                    <input type="text" th:field="*{categoryName}"
+                           placeholder="Category Name" class="form-control" aria-describedby="basic-addon1"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('categoryName')}">
+                    <span th:if="${#fields.hasErrors('categoryName')}"
+                          th:errors="*{categoryName}" class="validation-message"> </span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary block full-width m-b">Update</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
